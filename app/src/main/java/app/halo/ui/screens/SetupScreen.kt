@@ -186,7 +186,8 @@ fun SetupScreen(data: AppData, editing: SavedDevice?, onDone: () -> Unit, onCanc
                     TuyaDevice(TuyaDeviceConfig(devId.trim(), host.trim(), cleanKey, v)) { Diagnostics.log("setup", it) }
                 }.getOrElse { e -> lastError = e.message; null } ?: break
                 try {
-                    val dps = withTimeout(10_000) { dev.status() }
+                    // Real-time timeout on the IO dispatcher (independent of UI clocks).
+                    val dps = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) { withTimeout(10_000) { dev.status() } }
                     val schema = BulbSchema.detect(dps)
                     version = v
                     Store.upsertDevice(SavedDevice(devId.trim(), name.ifBlank { "Light" }, host.trim(), cleanKey, v.label, schema?.name))
@@ -202,6 +203,7 @@ fun SetupScreen(data: AppData, editing: SavedDevice?, onDone: () -> Unit, onCanc
                     dev.close()
                     break // a network problem; other versions won't help
                 } catch (e: Exception) {
+                    Diagnostics.log("setup", "v${v.label} failed: ${e.javaClass.simpleName}: ${e.message}")
                     lastError = when (e) {
                         is kotlinx.coroutines.TimeoutCancellationException -> "The light didn't answer."
                         else -> e.message

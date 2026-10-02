@@ -9,6 +9,7 @@ import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -83,6 +84,7 @@ fun HaloRoot() {
                 current is Overlay.EditSchedule -> ScheduleEditor(data, current.schedule) { overlay = null }
                 ctrl != null -> Scaffold(
                     containerColor = halo.background,
+                    contentWindowInsets = WindowInsets(0, 0, 0, 0),
                     bottomBar = {
                         NavigationBar(containerColor = halo.surface, tonalElevation = androidx.compose.ui.unit.Dp(0f)) {
                             listOf(

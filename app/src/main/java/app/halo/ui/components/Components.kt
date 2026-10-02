@@ -120,17 +120,17 @@ fun GlowOrb(
         val glowR = r * (2.15f + 0.08f * breathe)
         drawCircle(
             Brush.radialGradient(
-                listOf(color.copy(alpha = 0.55f * intensity), color.copy(alpha = 0.16f * intensity), Color.Transparent),
+                listOf(color.copy(alpha = 0.7f * intensity), color.copy(alpha = 0.22f * intensity), Color.Transparent),
                 center = c, radius = glowR,
             ),
             radius = glowR, center = c,
         )
         // body
         val off = halo.surfaceHigh
-        val body = lerp(off, color, power * (0.45f + 0.55f * shownLevel))
-        val core = lerp(off, lerp(color, Color.White, 0.65f), power * (0.5f + 0.5f * shownLevel))
+        val body = lerp(off, color, power * (0.78f + 0.22f * shownLevel))
+        val core = lerp(off, lerp(color, Color.White, 0.75f), power * (0.85f + 0.15f * shownLevel))
         drawCircle(
-            Brush.radialGradient(listOf(core, body, lerp(body, Color.Black, 0.35f)), center = c - Offset(r * 0.25f, r * 0.3f), radius = r * 1.35f),
+            Brush.radialGradient(listOf(core, body, lerp(body, Color.Black, 0.22f)), center = c - Offset(r * 0.2f, r * 0.25f), radius = r * 1.4f),
             radius = r, center = c,
         )
         // rim

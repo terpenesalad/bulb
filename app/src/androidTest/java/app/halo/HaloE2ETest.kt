@@ -41,6 +41,8 @@ class HaloE2ETest {
         shot++
         val file = "/data/local/tmp/halo-shots/%02d-%s.png".format(shot, name)
         val ui = InstrumentationRegistry.getInstrumentation().uiAutomation
+        ui.executeShellCommand("am broadcast -a android.intent.action.CLOSE_SYSTEM_DIALOGS").close()
+        Thread.sleep(300)
         ui.executeShellCommand("mkdir -p /data/local/tmp/halo-shots").close()
         ui.executeShellCommand("screencap -p $file").close()
         Thread.sleep(500)

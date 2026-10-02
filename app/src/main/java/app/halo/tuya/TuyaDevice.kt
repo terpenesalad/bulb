@@ -70,7 +70,9 @@ class TuyaDevice(
     // ---------------------------------------------------------------- public API
 
     /** Reads every data point. */
-    suspend fun status(): Map<String, Any?> = withRetry {
+    suspend fun status(): Map<String, Any?> = withContext(Dispatchers.IO) { statusIo() }
+
+    private suspend fun statusIo(): Map<String, Any?> = withRetry {
         requestLock.withLock {
             var reply = queryOnce()
             if (reply == null && !device22) {
@@ -87,7 +89,7 @@ class TuyaDevice(
      * Writes data points. With [awaitAck] false the call returns as soon as the
      * bytes are sent (used for sliders and effects so they feel instant).
      */
-    suspend fun set(dps: Map<String, Any?>, awaitAck: Boolean = true) {
+    suspend fun set(dps: Map<String, Any?>, awaitAck: Boolean = true) = withContext(Dispatchers.IO) {
         withRetry {
             requestLock.withLock {
                 drainInbox()
