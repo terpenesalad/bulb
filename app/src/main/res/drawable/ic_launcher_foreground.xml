@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A glowing ring with a warm core: "Halo". 108dp canvas, safe zone is the inner 66dp. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path android:pathData="M54,54m-30,0a30,30 0,1 1,60 0a30,30 0,1 1,-60 0">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="radial"
+                android:centerX="54"
+                android:centerY="54"
+                android:gradientRadius="30">
+                <item android:offset="0" android:color="#66FFB547" />
+                <item android:offset="0.7" android:color="#22FF7A3D" />
+                <item android:offset="1" android:color="#00FF7A3D" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <path
+        android:pathData="M54,54m-20,0a20,20 0,1 1,40 0a20,20 0,1 1,-40 0"
+        android:strokeWidth="4.5"
+        android:fillColor="#00000000">
+        <aapt:attr name="android:strokeColor">
+            <gradient
+                android:type="sweep"
+                android:centerX="54"
+                android:centerY="54">
+                <item android:offset="0" android:color="#FFFFD08A" />
+                <item android:offset="0.5" android:color="#FFFF8A3D" />
+                <item android:offset="1" android:color="#FFFFD08A" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <path
+        android:fillColor="#FFFFF1DC"
+        android:pathData="M54,54m-7,0a7,7 0,1 1,14 0a7,7 0,1 1,-14 0" />
+</vector>

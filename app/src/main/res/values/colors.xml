@@ -1,0 +1,8 @@
+<resources>
+    <color name="halo_black">#FF000000</color>
+    <color name="halo_card">#FF141418</color>
+    <color name="halo_accent">#FFFFB547</color>
+    <color name="halo_text">#FFF5F3EE</color>
+    <color name="halo_text_dim">#FF8E8B93</color>
+    <color name="ic_launcher_background">#FF0B0B0F</color>
+</resources>

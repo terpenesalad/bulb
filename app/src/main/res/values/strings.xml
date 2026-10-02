@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Halo</string>
+    <string name="widget_name">Halo light</string>
+    <string name="tile_name">Bedroom light</string>
+</resources>
