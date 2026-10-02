@@ -147,8 +147,8 @@ fun LightScreen(
 
     Column(
         Modifier
-            .verticalScroll(rememberScrollState())
             .windowInsetsPadding(WindowInsets.statusBars)
+            .verticalScroll(rememberScrollState())
             .padding(horizontal = 20.dp)
             .padding(bottom = 28.dp),
     ) {

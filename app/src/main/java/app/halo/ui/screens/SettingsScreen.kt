@@ -106,8 +106,8 @@ fun SettingsScreen(data: AppData, onEditLight: (SavedDevice) -> Unit, onAddLight
     Column(
         Modifier
             .fillMaxSize()
-            .verticalScroll(rememberScrollState())
             .windowInsetsPadding(WindowInsets.statusBars)
+            .verticalScroll(rememberScrollState())
             .padding(horizontal = 20.dp)
             .padding(bottom = 28.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),

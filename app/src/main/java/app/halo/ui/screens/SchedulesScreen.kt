@@ -137,8 +137,8 @@ fun SchedulesScreen(data: AppData, onEdit: (Schedule?) -> Unit) {
     Column(
         Modifier
             .fillMaxSize()
-            .verticalScroll(rememberScrollState())
             .windowInsetsPadding(WindowInsets.statusBars)
+            .verticalScroll(rememberScrollState())
             .padding(horizontal = 20.dp)
             .padding(bottom = 28.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
@@ -274,8 +274,8 @@ fun ScheduleEditor(data: AppData, initial: Schedule?, onClose: () -> Unit) {
         Modifier
             .fillMaxSize()
             .background(halo.background)
-            .verticalScroll(rememberScrollState())
             .windowInsetsPadding(WindowInsets.statusBars)
+            .verticalScroll(rememberScrollState())
             .padding(horizontal = 20.dp)
             .padding(bottom = 32.dp),
         verticalArrangement = Arrangement.spacedBy(14.dp),

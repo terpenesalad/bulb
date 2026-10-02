@@ -223,8 +223,8 @@ fun SetupScreen(data: AppData, editing: SavedDevice?, onDone: () -> Unit, onCanc
         Modifier
             .fillMaxSize()
             .background(halo.background)
-            .verticalScroll(rememberScrollState())
             .windowInsetsPadding(WindowInsets.statusBars)
+            .verticalScroll(rememberScrollState())
             .imePadding()
             .padding(horizontal = 20.dp)
             .padding(bottom = 40.dp),
